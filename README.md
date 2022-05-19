@@ -21,11 +21,11 @@ Download the enterprise edition you got from your administrator and add it to th
 
 Download following addons you got from your administrator and add it to the ``addons`` folder:
 
-* oca
-* paulundernst
-* scrimo_crm_automation
-* scrimo_crm_paulundernst
-* scrimo_layout
+* oca (OCA github page - partner-contact repo)
+* paulundernst (SCRIMO Gitlab)
+* scrimo_crm_automation (SCRIMO Gitlab)
+* scrimo_crm_paulundernst (SCRIMO Gitlab)
+* scrimo_layout (SCRIMO Gitlab)
 
 ### Load/start the containers and images
 
@@ -62,6 +62,17 @@ Klick on ``Apps`` and search for "scrimo". The "Paul&Ernst CRM Extension" should
 
 ### Install apps
 
-TODO
+*   sale
+*   account
+*   stock
+*   project
+*   purchase
+*   stock_landed_costs
+*   delivery
+*   crm
+*   sales_team
+*   sale_stock
+*   sale_management
+*   purchase_requisition
 
 You should be all set up and work with the ERP system locally.
