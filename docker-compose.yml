@@ -1,0 +1,37 @@
+version: '3.1'
+services:
+  web:
+    container_name: odoo_web
+    image: odoo:15.0
+    build: ./
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./enterprise:/mnt/enterprise-addons
+      - ./addons:/mnt/extra-addons
+  db:
+    container_name: odoo_db
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data/pgdata
+  pgadmin:
+    container_name: odoo_db_pgadmin4
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+volumes:
+  odoo-web-data:
+  odoo-db-data:
