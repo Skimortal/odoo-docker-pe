@@ -16,7 +16,10 @@ services:
       - ./addons/oca/partner-contact:/mnt/extra-addons/oca-partner-contact
       - ./addons/paulundernst:/mnt/extra-addons/paulundernst
       - ./addons/scrimo_layout:/mnt/extra-addons/scrimo_layout
-    command: -u scrimo_layout_paulundernst
+      - ./addons/scrimo_purchase:/mnt/extra-addons/scrimo_purchase
+      - ./addons/multi-company:/mnt/extra-addons/multi-company
+      - ./addons/scrimo_addons:/mnt/extra-addons/scrimo_addons
+    command: -u all
   db:
     container_name: odoo_db
     image: postgres:14
@@ -27,15 +30,15 @@ services:
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
       - odoo-db-data:/var/lib/postgresql/data/pgdata
-#  pgadmin:
-#    container_name: odoo_db_pgadmin4
-#    image: dpage/pgadmin4
-#    restart: always
-#    environment:
-#      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-#      PGADMIN_DEFAULT_PASSWORD: root
-#    ports:
-#      - "5050:80"
+  pgadmin:
+    container_name: odoo_db_pgadmin4
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
 volumes:
   odoo-web-data:
   odoo-db-data:
