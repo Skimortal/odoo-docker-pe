@@ -71,3 +71,7 @@ cd ../../
 cd addons/scrimo_translation_html
 git pull
 cd ../../
+
+cd addons/scrimo_timesheet
+git pull
+cd ../../

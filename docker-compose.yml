@@ -19,7 +19,8 @@ services:
       - ./addons/scrimo_purchase:/mnt/extra-addons/scrimo_purchase
       - ./addons/multi-company:/mnt/extra-addons/multi-company
       - ./addons/scrimo_addons:/mnt/extra-addons/scrimo_addons
-    command: -u all
+      - ./addons/scrimo_timesheet:/mnt/extra-addons/scrimo_timesheet
+    command: -u scrimo_timesheet,scrimo_timesheet_paulundernst
   db:
     container_name: odoo_db
     image: postgres:14
