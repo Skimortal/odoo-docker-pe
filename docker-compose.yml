@@ -2,7 +2,7 @@ version: '3.1'
 services:
   web:
     container_name: odoo_web
-    image: odoo:15.0
+    image: odoo_web
     build: ./
     depends_on:
       - db
@@ -20,7 +20,7 @@ services:
       - ./addons/multi-company:/mnt/extra-addons/multi-company
       - ./addons/scrimo_addons:/mnt/extra-addons/scrimo_addons
       - ./addons/scrimo_timesheet:/mnt/extra-addons/scrimo_timesheet
-    command: -u scrimo_timesheet,scrimo_timesheet_paulundernst
+    command: -u scrimo_timesheet
   db:
     container_name: odoo_db
     image: postgres:14
