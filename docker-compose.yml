@@ -13,15 +13,18 @@ services:
       - ./config:/etc/odoo
       - ./enterprise:/mnt/enterprise-addons
       - ./addons:/mnt/extra-addons
-      - ./addons/oca/partner-contact:/mnt/extra-addons/oca-partner-contact
       - ./addons/paulundernst:/mnt/extra-addons/paulundernst
+      - ./addons/scrimo_addons:/mnt/extra-addons/scrimo_addons
+      - ./addons/scrimo_documents:/mnt/extra-addons/scrimo_documents
       - ./addons/scrimo_layout:/mnt/extra-addons/scrimo_layout
       - ./addons/scrimo_purchase:/mnt/extra-addons/scrimo_purchase
-      - ./addons/multi-company:/mnt/extra-addons/multi-company
-      - ./addons/scrimo_addons:/mnt/extra-addons/scrimo_addons
       - ./addons/scrimo_timesheet:/mnt/extra-addons/scrimo_timesheet
       - ./addons/scrimo_unfollow:/mnt/extra-addons/scrimo_unfollow
-    command: -u scrimo_layout_paulundernst
+      - ./addons/ninja:/mnt/extra-addons/ninja
+      - ./addons/prt_mail_messages:/mnt/extra-addons/prt_mail_messages
+      - ./addons/export:/mnt/extra-addons/export
+      - ./addons/scrimo_time_odoo:/mnt/extra-addons/scrimo_time_odoo
+    command: -u all
     environment:
       SMTP_SERVER: mail
       SMTP_PORT: 1025
